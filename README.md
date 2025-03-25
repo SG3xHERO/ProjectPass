@@ -103,10 +103,6 @@ npm run start
 
 Please read `CONTRIBUTING.md` for details on our code of conduct and the process for submitting pull requests.
 
-## License
-
-[Specify your license, e.g., MIT]
-
 ## Acknowledgments
 
 - Inspiration for secure password generation
