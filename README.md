@@ -4,23 +4,16 @@
 
 ProjectPass is a secure, customizable web-based password generator with email domain integration.
 
-## Features
-
-- Generate multiple passwords simultaneously
-- Customize password count
-- Optional email domain selection
-- Copy to clipboard functionality
-- One-time secret sharing
-
 ## Project Structure
 
-- `frontend/`: Client-side application
+- `frontend/`: Static frontend files
 - `backend/`: Node.js Express API server
 
 ## Prerequisites
 
 - Node.js (v14 or later)
-- npm
+- Web server (Nginx, Apache, etc.) for frontend deployment
+- Backend server for API
 
 ## Local Development
 
@@ -57,61 +50,98 @@ npm run start
 npm run dev
 ```
 
-### Frontend Setup
-
-1. Navigate to frontend directory
-```bash
-cd frontend
-```
-
-2. Install dependencies
-```bash
-npm install
-```
-
-3. Create `.env` file
-```bash
-cp .env.example .env
-```
-
-4. Configure API endpoint in `.env`
-
-5. Start the frontend
-```bash
-npm run start
-```
-
-## Deployment
-
-### Backend Deployment
-- Supports deployment on Heroku, DigitalOcean, AWS, Render
-- Ensure all environment variables are set
-- Use `npm start` as the run command
-
 ### Frontend Deployment
-- Can be deployed on Netlify, Vercel, Cloudflare Pages
-- Ensure `REACT_APP_API_BASE_URL` is set to your backend endpoint
 
-## Security
+#### Local Testing
+For local testing, you can use simple static file servers:
 
-- Passwords are generated client-side
-- Optional email domain integration
-- Rate limiting on API endpoints
-- Configurable password generation
+```bash
+# Using Python
+python -m http.server 8080
+
+# Using PHP
+php -S localhost:8080
+
+# Using Node.js
+npx serve frontend/public
+```
+
+#### Web Server Deployment
+
+##### Nginx Configuration Example
+```nginx
+server {
+    listen 80;
+    server_name yourdomain.com;
+
+    root /path/to/ProjectPass/frontend/public;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Optional: API Proxy
+    location /api/ {
+        proxy_pass http://backend-server:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+##### Apache (.htaccess) Configuration
+```apache
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.html [L]
+```
+
+#### Deployment Steps
+1. Copy frontend files to web server directory
+2. Configure your web server to serve static files
+3. Set the API base URL in `index.html`
+4. Ensure proper CORS configuration on the backend
+
+## Environment Configuration
+
+1. In `index.html`, set the API base URL:
+```html
+<script>
+    // Set the API base URL 
+    window.API_BASE_URL = 'https://your-api-domain.com';
+</script>
+```
+
+## Security Considerations
+
+- Use HTTPS for both frontend and backend
+- Implement proper CORS settings
+- Use environment variables for configuration
+- Keep dependencies updated
 
 ## Contributing
 
 Please read `CONTRIBUTING.md` for details on our code of conduct and the process for submitting pull requests.
 
-## License
+## Deployment Platforms
 
-[Specify your license, e.g., MIT]
+### Frontend Hosting Options
+- Nginx
+- Apache
+- Caddy
+- Cloudflare Pages
+- Netlify
+- GitHub Pages
 
-## Acknowledgments
-
-- Inspiration for secure password generation
-- Open-source community
+### Backend Hosting 
+- Node
 
 ## Contact
 
 - GitHub: [@SG3xHERO](https://github.com/SG3xHERO)
+- Project: [ProjectPass](https://github.com/SG3xHERO/ProjectPass)
