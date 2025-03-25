@@ -1,0 +1,202 @@
+/* Additional custom styles to complement Tailwind */
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(31, 41, 55, 0.5);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ec4899;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #db2777;
+}
+
+/* Custom toggle switch - selected state */
+#email-toggle:checked + span {
+    background-color: #ec4899;
+}
+
+#email-toggle:checked + span:before {
+    transform: translateX(24px);
+}
+
+/* Password box styles */
+.password-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(55, 65, 81, 0.7);
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 3px solid #ec4899;
+    word-break: break-word;
+    text-align: left;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.password-box:hover {
+    background: rgba(75, 85, 99, 0.9);
+}
+
+/* Text container */
+.password-text {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+/* Password action buttons */
+.password-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.copy-btn, .ots-btn, .regenerate-btn, .remove-btn {
+    background: rgba(55, 65, 81, 0.9);
+    border: none;
+    color: #ffffff;
+    font-size: 0.8em;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.copy-btn:hover, .ots-btn:hover, .regenerate-btn:hover, .remove-btn:hover {
+    background: #ec4899;
+    transform: scale(1.1);
+}
+
+.copy-btn:active, .ots-btn:active, .regenerate-btn:active, .remove-btn:active {
+    background: #db2777;
+    transform: scale(1);
+}
+
+/* Animation for Copy Button */
+.copy-btn.copied {
+    background: #10b981;
+    transform: scale(1.2);
+}
+
+/* Copy All & Send All Buttons */
+.copy-all-btn, .ots-all-btn {
+    background: #ec4899;
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    width: auto;
+    margin: 10px 0;
+}
+
+.copy-all-btn:hover, .ots-all-btn:hover {
+    background: #db2777;
+    transform: scale(1.05);
+}
+
+.copy-all-btn.copied {
+    background: #10b981 !important;
+    transform: scale(1.1);
+}
+
+/* Fortune box styling */
+.fortune-box {
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(55, 65, 81, 0.5);
+    border-left: 4px solid #ec4899;
+    border-radius: 6px;
+    font-style: italic;
+    color: #d1d5db;
+}
+
+/* Fade-in effects */
+.visible {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for changes */
+.highlight {
+    animation: highlight 1s ease-in-out;
+}
+
+@keyframes highlight {
+    0%, 100% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: rgba(236, 72, 153, 0.3);
+    }
+}
+/* Button hover animation styles */
+#generate-btn, #more-options-toggle {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#generate-btn:hover, #more-options-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
+}
+
+#generate-btn:active, #more-options-toggle:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(236, 72, 153, 0.4);
+}
+
+/* Add subtle ripple effect */
+#generate-btn::before, #more-options-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#generate-btn:hover::before, #more-options-toggle:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+/* Set content to appear above the ripple */
+#generate-btn span, #more-options-toggle span {
+    position: relative;
+    z-index: 2;
+}

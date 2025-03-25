@@ -1,0 +1,50 @@
+{
+  "name": "projectpass-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for ProjectPass Password Generator",
+  "main": "public/scripts/main.js",
+  "scripts": {
+    "start": "npx serve public",
+    "build": "echo 'No build step required for static site'",
+    "test": "echo \"Error: no tests specified\" && exit 1",
+    "lint": "eslint public/scripts",
+    "lint:fix": "eslint public/scripts --fix"
+  },
+  "keywords": [
+    "password",
+    "generator",
+    "frontend",
+    "javascript",
+    "projectpass"
+  ],
+  "author": "SG3xHERO",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SG3xHERO/ProjectPass.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SG3xHERO/ProjectPass/issues"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
