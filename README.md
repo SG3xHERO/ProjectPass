@@ -1,11 +1,11 @@
-# Password Generator
+# Project Pass
 
 ## Overview
-This is a web-based password generator application that allows users to create multiple passwords with optional email domain integration.
+Project Pass is self hostable password generator that allows users to create multiple passwords with optional email domain integration and mass send them securely over one time secret 
+The Algorithm to generate these passwords takes a lot of insipration from dinopass
 
 ## Features
 - Generate multiple passwords at once
-- Customizable password generation
 - Optional email domain selection
 - One-time secret sharing
 
@@ -17,7 +17,7 @@ This is a web-based password generator application that allows users to create m
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/password-generator.git
+git clone https://github.com/sg3xhero/ProjectPass.git
 cd password-generator
 ```
 
@@ -47,8 +47,6 @@ node server.js
 - Use environment variables for configuration
 - Implement proper authentication in a production environment
 
-## License
-[Add your preferred license here]
 
 ## Contributing
 Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
