@@ -111,10 +111,12 @@ RewriteRule ^(.*)$ /index.html [L]
 
 1. In `index.html`, set the API base URL:
 ```html
-<script>
-    // Set the API base URL 
-    window.API_BASE_URL = 'https://your-api-domain.com';
-</script>
+    <!-- Set API Base URL -->
+    <script>
+        // Configure the API base URL 
+        // Replace with your actual API endpoint
+        window.API_BASE_URL = 'https://api.yourdomain.com';
+    </script>
 ```
 
 ## Security Considerations
